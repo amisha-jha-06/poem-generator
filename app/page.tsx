@@ -161,6 +161,7 @@ export default function Home() {
       const formattedGender = formatGender(poemData.gender)
       const payload = {
         email: poemData.email,
+        phone: poemData.phone,
         eventData: {
           poem: poemData.poem,
           selected_word: poemData.selectedWord,
@@ -168,17 +169,22 @@ export default function Home() {
           customer_name: poemData.customerName,
           Gender: formattedGender
         },
-        phone: poemData.phone,
         eventName: 'poem_generated'
       }
 
-      const response = await fetch('https://utils.palmonas.com/api/webengage/process', {
+      console.log('Sending API request to:', 'https://utils.palmonas.com/api/poem/generate')
+      console.log('Payload:', payload)
+
+      const response = await fetch('https://utils.palmonas.com/api/poem/generate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(payload)
       })
+
+      console.log('API Response status:', response.status)
+      console.log('API Response:', response)
 
       if (!response.ok) {
         console.error('Failed to send poem data:', response.statusText)
@@ -262,6 +268,10 @@ export default function Home() {
   }
 
   const handleWhatsApp = async () => {
+    console.log('handleWhatsApp called')
+    console.log('formData:', formData)
+    console.log('poem:', poem)
+    
     if (!formData || !poem) {
       console.error('Form data or poem not available')
       return
