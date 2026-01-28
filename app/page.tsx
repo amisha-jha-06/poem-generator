@@ -2,8 +2,8 @@
 
 import React, { useState, FormEvent } from 'react'
 
-// Word options with their corresponding poems
-const wordPoems: Record<string, string> = {
+// Word options with their corresponding poems - Female/Other
+const wordPoemsFemale: Record<string, string> = {
   smile: `Your smile arrives before the sun,
 warming corners of my day.
 I keep searching for excuses
@@ -53,6 +53,59 @@ you hold the calm while I complain.`,
 lightens up my heaviest task.
 I try to hide, you see right through—
 and build a ladder just to you.`,
+}
+
+// Word options with their corresponding poems - Male
+const wordPoemsMale: Record<string, string> = {
+  smile: `Your smile shows up like borrowed light,
+breaking through my longest night.
+I find a thousand reasons why
+I hope it's there when you walk by.`,
+
+  eyes: `Your eyes hold storms and softer skies,
+midnight truths and quiet tries.
+I lose my way, then somehow know—
+they're where I always want to go.`,
+
+  lips: `They tilt the world with something sly,
+half a dare, half soft goodbye.
+I hear my name, I miss my cue—
+every plan dissolves in you.`,
+
+  hair: `Your hair frames your face in effortless grace,
+the kind of charm that time can't erase.
+I look, I pause, I want to stay—
+and let the world just fade away.`,
+
+  hands: `Your hands hold calm the way they should,
+steady, warm, impossibly good.
+I lean a little, just to stand
+inside the circle of your hand.`,
+
+  kindness: `Your kindness shows in little things,
+the way your quiet presence clings.
+I don't ask why, I just believe—
+you give more than I could receive.`,
+
+  loving: `Your loving stays when days get loud,
+anchors me soft inside the crowd.
+No fireworks needed, no grand display—
+just hearts that know exactly the way.`,
+
+  caring: `Your care finds the cracks I hide,
+stands beside me, not behind.
+I don't say much, I don't prepare—
+I just breathe easier when you're there.`,
+
+  patience: `Your patience lets my chaos land,
+never rushes what I am.
+I talk in circles, you just smile—
+and wait with me a little while.`,
+
+  supportive: `Your support feels like steady ground,
+rooted deep, without a sound.
+I reach too far, I lose my view—
+and somehow still I'm held by you.`,
 }
 
 const wordOptions = [
@@ -164,7 +217,8 @@ export default function Home() {
         ? `Always yours,\n${name}`
         : `${name}`
 
-    // Get the poem for the selected word
+    // Get the poem for the selected word based on gender
+    const wordPoems = gender === 'male' ? wordPoemsMale : wordPoemsFemale
     const wordPoem = wordPoems[selectedWord] || ''
     
     // Format the final poem with partner name and signature
