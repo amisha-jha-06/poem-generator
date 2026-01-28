@@ -158,6 +158,7 @@ export default function Home() {
     poem: string
   }): Promise<boolean> => {
     try {
+      const formattedGender = formatGender(poemData.gender)
       const payload = {
         email: poemData.email,
         eventData: {
@@ -165,7 +166,7 @@ export default function Home() {
           selected_word: poemData.selectedWord,
           partner_name: poemData.partnerName,
           customer_name: poemData.customerName,
-          Gender: formatGender(poemData.gender)
+          Gender: formattedGender
         },
         phone: poemData.phone,
         eventName: 'poem_generated'
@@ -218,7 +219,7 @@ export default function Home() {
         : `${name}`
 
     // Get the poem for the selected word based on gender
-    const wordPoems = gender === 'male' ? wordPoemsMale : wordPoemsFemale
+    const wordPoems = gender === 'male' ? wordPoemsFemale : wordPoemsMale
     const wordPoem = wordPoems[selectedWord] || ''
     
     // Format the final poem with partner name and signature
