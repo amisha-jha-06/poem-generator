@@ -112,7 +112,7 @@ export default function Home() {
           selected_word: poemData.selectedWord,
           partner_name: poemData.partnerName,
           customer_name: poemData.customerName,
-          gender: formatGender(poemData.gender)
+          Gender: formatGender(poemData.gender)
         },
         phone: poemData.phone,
         eventName: 'poem_generated'
