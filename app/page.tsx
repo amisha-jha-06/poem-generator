@@ -229,9 +229,9 @@ export default function Home() {
 
     if (success) {
       setSuccessMessage('Poem sent successfully! You will receive it on WhatsApp/Email with additional reward points. 🎉')
-      // Clear success message after 5 seconds
+      // Redirect to palmonas.com after 5 seconds
       setTimeout(() => {
-        setSuccessMessage('')
+        window.location.href = 'https://palmonas.com'
       }, 5000)
     } else {
       setError('Failed to send poem. Please try again.')
