@@ -417,14 +417,14 @@ export default function Home() {
 
               <div className="row-actions">
                 <button
-                  className="btn primary"
+                  className="btn secondary"
                   id="generateBtn"
                   type="submit"
                   disabled={isGenerated}
                 >
                   {isGenerated ? 'Poem Generated ✓' : 'Generate Poem'}
                 </button>
-                <button className="btn secondary" type="button" onClick={handleReset}>
+                <button className="btn primary" type="button" onClick={handleReset}>
                   Reset
                 </button>
               </div>
