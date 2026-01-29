@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, FormEvent } from 'react'
+import logo from './logo.png';
 
 // Word options with their corresponding poems - Female/Other
 const wordPoemsFemale: Record<string, string> = {
@@ -359,8 +360,11 @@ export default function Home() {
         <div className="hero">
           <div className="content">
             <div className="page-header">
-              <div className="header-top">say it with</div>
-              <div className="header-bottom">PALMONAS</div>
+              <img 
+                src={logo.src}
+                alt="Say it with PALMONAS" 
+                className="header-logo"
+              />
             </div>
             <form id="poemForm" onSubmit={handleSubmit} noValidate>
               <div className="grid">
