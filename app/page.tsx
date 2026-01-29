@@ -401,7 +401,7 @@ export default function Home() {
                 </div>
 
                 <div>
-                  <label htmlFor="word">Select a Word*</label>
+                  <label htmlFor="word">One thing you love about your partner*</label>
                   <select id="word" name="word" required>
                     <option value="">Choose a word...</option>
                     {wordOptions.map((option) => (
