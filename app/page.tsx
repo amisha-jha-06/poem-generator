@@ -281,7 +281,8 @@ export default function Home() {
     setSuccessMessage('')
     setError('')
 
-    // Send poem data to API
+    // Send poem data to API - convert newlines to <br> tags
+    const poemWithBreaks = poem.replace(/\n/g, '<br>')
     const success = await sendPoemData({
       email: formData.email,
       phone: phone,
@@ -289,7 +290,7 @@ export default function Home() {
       partnerName: formData.partnerName,
       gender: formData.gender,
       selectedWord: formData.selectedWord,
-      poem: poem
+      poem: poemWithBreaks
     })
 
     if (success) {
